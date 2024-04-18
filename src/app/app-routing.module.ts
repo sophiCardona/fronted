@@ -18,6 +18,18 @@ const routes: Routes = [
     path:"seguridad",
     loadChildren: () => import("./modulos/seguridad/seguridad.module").then(m => m.SeguridadModule) 
 },
+{
+    path:"parametros",
+    loadChildren: () => import("./modulos/parametros/parametros.module").then(m => m.ParametrosModule) 
+},
+{
+    path:"ventas",
+    loadChildren: () => import("./modulos/ventas/ventas.module").then(m => m.VentasModule) 
+},
+{
+    path:"reportes",
+    loadChildren: () => import("./modulos/reportes/reportes.module").then(m => m.ReportesModule) 
+},
  {
     path:"**",
     component: RutaNoEncontradaComponent
