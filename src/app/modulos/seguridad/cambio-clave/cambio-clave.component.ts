@@ -9,4 +9,19 @@ import { Component } from '@angular/core';
 })
 export class CambioClaveComponent {
 
+
+  constructor(
+
+  ){
+
+  }
+
+  ngOnInit(){
+    
+    this.cambiarClave();
+  }
+  cambiarClave(){
+  
+  }
+
 }

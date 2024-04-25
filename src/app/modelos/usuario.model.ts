@@ -1,13 +1,15 @@
 export class UsuarioModel{
     constructor(
-        _id?: string,
-        primerNombre?: string,
-         segundoNombre?: string,
-         primerApellido?: string,
-         segundoApellido?: string,
-         correo?: string,
-         celular?: string,
-         clave?: string,
-         rolId?: string,
+        public _id?: string,
+        public primerNombre?: string,
+        public segundoNombre?: string,
+        public primerApellido?: string,
+        public segundoApellido?: string,
+        public correo?: string,
+        public celular?: string,
+        public clave?: string,
+        public rolId?: string,
+        public user?: UsuarioModel,
+        public token: string = ""
     ){}
 }

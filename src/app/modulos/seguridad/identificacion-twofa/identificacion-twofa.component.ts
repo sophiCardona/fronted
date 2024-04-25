@@ -23,7 +23,7 @@ export class IdentificacionTwofaComponent {
 
   ) { }
 NgOnInit(){
-  let datos: any = this.servicioSeguridad.ObtenerDatosUsuarioLS();
+  let datos = this.servicioSeguridad.ObtenerDatosUsuarioLS();
   if(datos != null){
     this.usuarioId = datos._id!; // Change access modifier to public
     this.ConstruirFormulario();

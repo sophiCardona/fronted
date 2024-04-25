@@ -1,6 +1,6 @@
 import { UsuarioModel } from "./usuario.model";
 
 export class UsuarioValidadoModel{
-    user?: UsuarioModel;
-    token?: string = "";
+    public user?: UsuarioModel;
+    public token?: string = "";
 }

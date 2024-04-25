@@ -11,7 +11,9 @@ import { UsuarioValidadoModel } from '../modelos/usuario.validado.model';
 export class SeguridadService {
   urlBase:string = ConfiguracionRutasBackend.urlSeguridad;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.validacionDeSesion();
+  }
 
 
    /**
@@ -87,9 +89,41 @@ AlmacenarDatosUsuarioValidado(datos:UsuarioValidadoModel):boolean{
   }else{
     let datosString = JSON.stringify(datos);
     localStorage.setItem('datos-sesion', datosString);
+    this.ActualizarComportamientoUsuario(datos);
     return true;
   }
 
+}
+
+
+/**
+ * Cerrando Sesion
+ */
+RemoverDatosUsuarioValidado(){
+  let datosUsuario = localStorage.getItem('datos-usuario');
+  let datosSesion = localStorage.getItem('datos-sesion');
+  if(datosUsuario){
+    localStorage.removeItem('datos-usuario');
+
+  if(datosSesion){
+    localStorage.removeItem('datos-sesion');  
+  }
+
+  }
+  this.ActualizarComportamientoUsuario(new UsuarioValidadoModel());
+}
+
+/**
+ * Cambiar Clave
+ */
+
+/*CambiarClave(){
+}*/
+
+RecuperarClavePorUsuario(usuario: string): Observable<UsuarioModel>{
+  return this.http.post<UsuarioModel>(`${this.urlBase}recuperar-clave`, {
+    correo: usuario
+  });
 }
 
 /** Administracion de la sesion de usuario */
