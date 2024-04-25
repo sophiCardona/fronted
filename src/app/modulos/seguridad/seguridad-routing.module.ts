@@ -8,6 +8,7 @@ import { EditarUsuarioComponent } from './usuario/editar-usuario/editar-usuario.
 import { EliminarUsuarioComponent } from './usuario/eliminar-usuario/eliminar-usuario.component';
 import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
 import { CerrarSesionComponent } from './cerrar-sesion/cerrar-sesion.component';
+import { IdentificacionTwofaComponent } from './identificacion-twofa/identificacion-twofa.component';
 
 const routes: Routes = [{
   path: 'autenticar-usuario',
@@ -45,6 +46,10 @@ const routes: Routes = [{
 {
   path: 'listar-usuario/:id',
   component: ListarUsuarioComponent
+}, 
+{
+  path: '2fa',
+  component: IdentificacionTwofaComponent
 }
 ];
 
