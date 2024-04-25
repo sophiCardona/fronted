@@ -1,7 +1,7 @@
 export class UsuarioModel{
     constructor(
-         id?: number,
-         primerNombre?: string,
+        _id?: string,
+        primerNombre?: string,
          segundoNombre?: string,
          primerApellido?: string,
          segundoApellido?: string,

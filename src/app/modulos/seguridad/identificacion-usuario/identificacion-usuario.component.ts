@@ -34,6 +34,8 @@ export class IdentificacionUsuarioComponent {
     });
   }
 
+ 
+
   IdentificarUsuario(){
     if(this.fGroup.invalid){
       alert("Datos Incompletos")
@@ -44,8 +46,12 @@ export class IdentificacionUsuarioComponent {
       this.servicioSeguridad.IdentificarUsuario(usuario, claveCifrada).subscribe({
         next: (datos:UsuarioModel) => {
           console.log(datos);
+          this.servicioSeguridad.AlmacenarDatosUsuarioValidado(datos);
+          if(this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)){
           this.router.navigate(['/seguridad/2fa']);
+          }
         },
+      
         error: (err) => {
           console.log(err);
       }
