@@ -47,6 +47,8 @@ ValidarCodigo2fa(){
   this.servicioSeguridad.ValidarCodigo2FA(this.usuarioId, codigo2fa).subscribe({
     next: (datos:UsuarioValidadoModel) => {
       console.log(datos);
+      this.servicioSeguridad.AlmacenarDatosUsuarioValidado(datos);
+      this.router.navigate([""]);
     },
     error: (err) => {
       console.log(err);

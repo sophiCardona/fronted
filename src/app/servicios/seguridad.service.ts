@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UsuarioModel } from '../modelos/usuario.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { ConfiguracionRutasBackend } from '../config/configuracion.rutas.backend';
 import { UsuarioValidadoModel } from '../modelos/usuario.validado.model';
 
@@ -90,5 +90,24 @@ AlmacenarDatosUsuarioValidado(datos:UsuarioValidadoModel):boolean{
     return true;
   }
 
+}
+
+/** Administracion de la sesion de usuario */
+
+datosUsuarioValidado = new BehaviorSubject<UsuarioValidadoModel>(new UsuarioValidadoModel())
+ObtenerDatosSesion():Observable<UsuarioValidadoModel>{
+  return this.datosUsuarioValidado.asObservable();
+}
+
+validacionDeSesion(){
+  let ls = localStorage.getItem('datos-sesion');
+  if (ls){
+    let objuusuario = JSON.parse(ls);
+    this.ActualizarComportamientoUsuario(objuusuario);
+  }
+}
+
+ActualizarComportamientoUsuario(datos:UsuarioValidadoModel){
+  return this.datosUsuarioValidado.next(datos)
 }
 }
