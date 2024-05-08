@@ -10,6 +10,7 @@ import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.
 import { CerrarSesionComponent } from './cerrar-sesion/cerrar-sesion.component';
 import { IdentificacionTwofaComponent } from './identificacion-twofa/identificacion-twofa.component';
 import { RegistroPublicoUsuariosComponent } from './registro-publico-usuarios/registro-publico-usuarios.component';
+import { ValidarHashUsuarioPublicoComponent } from './validar-hash-usuario-publico/validar-hash-usuario-publico.component';
 
 const routes: Routes = [{
   path: 'autenticar-usuario',
@@ -55,7 +56,13 @@ const routes: Routes = [{
 {
   path: 'registro-publico',
   component: RegistroPublicoUsuariosComponent
+}, 
+
+{
+  path: 'validar-hash-usuario-publico/:hash',
+  component: ValidarHashUsuarioPublicoComponent
 }
+
 ];
 
 @NgModule({
