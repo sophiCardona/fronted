@@ -34,7 +34,6 @@ export class IdentificacionUsuarioComponent {
     });
   }
 
- 
 
   IdentificarUsuario(){
     if(this.fGroup.invalid){
@@ -49,7 +48,7 @@ export class IdentificacionUsuarioComponent {
           alert("Credenciales incorrectas o falta validación del correo electrónico");
           }else{
           console.log(datos);
-          this.servicioSeguridad.AlmacenarDatosUsuarioValidado(datos);
+          //this.servicioSeguridad.AlmacenarDatosUsuarioValidado(datos);
           if(this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)){
           this.router.navigate(['/seguridad/2fa']);
           }

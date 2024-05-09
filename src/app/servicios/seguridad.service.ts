@@ -4,6 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ConfiguracionRutasBackend } from '../config/configuracion.rutas.backend';
 import { UsuarioValidadoModel } from '../modelos/usuario.validado.model';
+import { PermisoModel } from '../modelos/permiso.model';
+import { ItemMenuModel } from '../modelos/item.menu.model';
+import { ConfiguracionMenuLateral } from '../config/configuracio.menu.lateral';
 
 @Injectable({
   providedIn: 'root'
@@ -153,5 +156,22 @@ validacionDeSesion(){
 
 ActualizarComportamientoUsuario(datos:UsuarioValidadoModel){
   return this.datosUsuarioValidado.next(datos)
+}
+
+ConstruirMenuLateral(permisos:PermisoModel[]): ItemMenuModel[]{
+  let menu: ItemMenuModel[] = []
+  
+  permisos.forEach((permiso) => {
+    let datosRuta = ConfiguracionMenuLateral.listaMenus.filter(x => x.id == permiso.menuId)
+    if(datosRuta.length > 0 ){
+      let item = new ItemMenuModel();
+      item._idMenu = permiso.menuId;
+      item.ruta = datosRuta[0].ruta;
+      item.icono = datosRuta[0].icono;
+      item.texto = datosRuta[0].texto;
+      menu.push(item);
+    }
+  })
+  return menu;
 }
 }

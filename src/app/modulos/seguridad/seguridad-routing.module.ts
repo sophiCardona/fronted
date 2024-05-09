@@ -61,7 +61,23 @@ const routes: Routes = [{
 {
   path: 'validar-hash-usuario-publico/:hash',
   component: ValidarHashUsuarioPublicoComponent
-}
+},
+{
+  path: 'usuario-crear',
+  component: CrearUsuarioComponent
+},
+{
+  path: 'usuario-listar',
+  component: ListarUsuarioComponent
+},
+{
+  path: 'usuario-editar/id',
+  component: EditarUsuarioComponent
+},
+{
+  path: 'usuario-eliminar',
+  component: EliminarUsuarioComponent
+},
 
 ];
 
